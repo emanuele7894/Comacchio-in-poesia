@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Comacchio in Poesia</string>
+    <string name="title_activity_poesieliste">poesieliste</string>
+    <string name="title_activity_poesie_liste">poesie_liste</string>
+    <string name="titolo">Titolo</string>
+    <string name="sottotiolo">Sottotiolo</string>
+    <string name="_1">1</string>
+    <string name="title_activity_video_poesia">videoPoesia</string>
+    <string name="title_activity_home">Home</string>
+    <string name="todo">TODO</string>
+    <string name="todo2">Todo</string>
+    <string name="todo3">TODO</string>
+    <string name="title_activity_main">MainActivity</string>
+</resources>
