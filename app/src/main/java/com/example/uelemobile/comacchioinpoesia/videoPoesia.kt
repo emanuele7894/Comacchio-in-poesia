@@ -303,7 +303,7 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
         //Controllo se il video è presente altrimenti nascondo la maschera del video
         var con =  ConstraintSet()
-        con.clone(mainL)
+            con.clone(mainL)
 
 
         fun videoNo(){
