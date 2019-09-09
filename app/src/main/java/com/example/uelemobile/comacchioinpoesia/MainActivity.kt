@@ -281,12 +281,12 @@ class MainActivity : AppCompatActivity() {
 
             override fun onClick(v: View?) {
 
-
-                k.putExtra(".titoloAutore", "Valter Bellotti");
-                    k.putExtra(".titoloLibro", "Un puech ad puàsiè");
-                        k.putExtra(".numeroLibro", "2");
+                k.putExtra(".titoloAutore", "Franco Luciani");
+                k.putExtra(".titoloLibro", "Parà, fichet, fusnà");
+                k.putExtra(".numeroLibro", "4");
 
                 startActivity(k);
+
             }
         })
 
@@ -299,13 +299,13 @@ class MainActivity : AppCompatActivity() {
 
             override fun onClick(v: View?) {
 
-
-
-                k.putExtra(".titoloAutore", "Valter Bellotti");
-                    k.putExtra(".titoloLibro", "Poesie varie");
-                        k.putExtra(".numeroLibro", "3");
+                k.putExtra(".titoloAutore", "Franco Luciani");
+                k.putExtra(".titoloLibro", "Poesie varie");
+                k.putExtra(".numeroLibro", "5");
 
                 startActivity(k);
+
+
 
             }
         })
@@ -317,9 +317,11 @@ class MainActivity : AppCompatActivity() {
 
             override fun onClick(v: View?) {
 
-                k.putExtra(".titoloAutore", "Franco Luciani");
-                    k.putExtra(".titoloLibro", "Parà, fichet, fusnà");
-                         k.putExtra(".numeroLibro", "4");
+
+
+                k.putExtra(".titoloAutore", "Valter Bellotti");
+                k.putExtra(".titoloLibro", "Un puech ad puàsiè");
+                k.putExtra(".numeroLibro", "2");
 
                 startActivity(k);
 
@@ -333,9 +335,11 @@ class MainActivity : AppCompatActivity() {
 
             override fun onClick(v: View?) {
 
-                k.putExtra(".titoloAutore", "Franco Luciani");
-                    k.putExtra(".titoloLibro", "Poesie varie");
-                         k.putExtra(".numeroLibro", "5");
+
+
+                k.putExtra(".titoloAutore", "Valter Bellotti");
+                k.putExtra(".titoloLibro", "Poesie varie");
+                k.putExtra(".numeroLibro", "3");
 
                 startActivity(k);
             }

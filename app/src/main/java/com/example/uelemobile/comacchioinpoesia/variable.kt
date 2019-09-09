@@ -35,7 +35,7 @@ public class variable {
 
     //////////////////////////
 
-    public var flTitolo = arrayOf("Ricordi/1","Ricordi/2","Ricordi/3","Ricordi/4","Un desiderio",
+    public var flTitolo = arrayOf("Il corredo di un fiocinino","Un desiderio",
             "Il treponti","Brinino il fiocinino","Lo zangolino","La coccaletta",
             "Spina, gli etruschi, i suoi pignattini e Comacchio","Il carnevale di una volta",
             "La folaga","La graticola","Il soldato","La festa del battellone","La bolaga",
@@ -43,7 +43,7 @@ public class variable {
             "L'anguilla","Abbandonano i terreni","Ti va bene tutto","La confessione della valle",
             "I casoni di valle ")
 
-    public var flTitoloD = arrayOf("Rircord/1","Ricord/2","Rircord/3","Ricord/4","Un desidèri",
+    public var flTitoloD = arrayOf("El curèdo d'un fusnèn","Un desidèri",
             "El tripùnt","Brinèn el fusnèn","El sengluèn","Le cucalàte","Spìne, i etrùsch, i sùe pgnetèn e Cmacc'",
             "Al cranvèl d'une vòlte","Le fòlghe","La gradàle","El suldà","La faste dal batlòn",
             "La bàurghe","Le murèle del ston","La nev rumène","La sansèle","I seliziàn","Lw fùesne",
