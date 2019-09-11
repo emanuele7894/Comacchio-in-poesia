@@ -55,12 +55,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
         android:background="@android:color/transparent"
-        android:elevation="8dp"
         android:fontFamily="@font/futuramedium"
         android:gravity="left|center_vertical"
         android:text="@string/sottotiolo"
         android:textColor="#fafafa"
-        app:layout_constraintEnd_toStartOf="@+id/contV"
         app:layout_constraintStart_toStartOf="@+id/sfondo2"
         app:layout_constraintTop_toTopOf="@+id/titolo2" />
 
@@ -69,14 +67,10 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_marginStart="5dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:alpha="0.4"
         android:background="@mipmap/b2"
-        android:elevation="8dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/sottotitolo2"
-        app:layout_constraintEnd_toStartOf="@+id/rotate"
         app:layout_constraintStart_toStartOf="@+id/titolo2"
         app:srcCompat="@mipmap/b2" />
     <TextView
@@ -85,7 +79,6 @@
         android:layout_height="44dp"
         android:layout_marginEnd="7dp"
         android:background="@android:color/transparent"
-        android:elevation="8dp"
         android:fontFamily="@font/futuramedium"
         android:gravity="center_vertical|center"
         android:text="01 / 11"
@@ -101,7 +94,6 @@
         android:layout_marginTop="38dp"
         android:layout_marginEnd="4dp"
         android:background="@mipmap/next"
-        android:elevation="8dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -113,7 +105,6 @@
         android:layout_marginTop="38dp"
         android:layout_marginEnd="15dp"
         android:background="@mipmap/back"
-        android:elevation="8dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toStartOf="@+id/nextButton"
         app:layout_constraintTop_toTopOf="parent" />
@@ -128,76 +119,12 @@
         app:layout_constraintStart_toStartOf="@+id/sfondo2"
         app:layout_constraintTop_toBottomOf="@+id/titolo2" />
 
-
-    <ImageView
-        android:id="@+id/barra"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginBottom="72dp"
-        android:background="@mipmap/fondo3"
-        android:elevation="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/fondo3" />
-
-    <ImageButton
-        android:id="@+id/youButton"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="8dp"
-        android:background="@mipmap/youtube"
-        android:elevation="8dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
-        app:layout_constraintEnd_toStartOf="@+id/traduz"
-        app:layout_constraintTop_toTopOf="@+id/barra"
-        app:srcCompat="@mipmap/youtube" />
-
-    <Button
-        android:id="@+id/ingrandisci"
-        android:layout_width="35dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="10dp"
-        android:background="@android:color/transparent"
-        android:elevation="7dp"
-        android:fontFamily="@font/futuramedium"
-        android:gravity="center_horizontal|center"
-        android:text="A"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
-        app:layout_constraintStart_toStartOf="@+id/barra"
-        app:layout_constraintTop_toBottomOf="@+id/youtubeplayerfragment" />
-
-    <Button
-        android:id="@+id/diminuisci"
-        android:layout_width="35dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="8dp"
-        android:background="@android:color/transparent"
-        android:elevation="7dp"
-        android:fontFamily="@font/futuramedium"
-        android:gravity="center_vertical|center"
-        android:text="A"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
-        app:layout_constraintStart_toEndOf="@+id/ingrandisci"
-        app:layout_constraintTop_toBottomOf="@+id/youtubeplayerfragment" />
-
     <Button
         android:id="@+id/traduz"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginEnd="10dp"
         android:background="@android:color/transparent"
-        android:elevation="7dp"
         android:fontFamily="@font/futuramedium"
         android:gravity="center_vertical|center_horizontal"
         android:text="ITALIANO"
@@ -207,6 +134,20 @@
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="@+id/barra"
         app:layout_constraintTop_toTopOf="@+id/barra" />
+
+    <ImageView
+        android:id="@+id/barra"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="72dp"
+        android:background="@mipmap/fondo3"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/fondo3" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
@@ -240,12 +181,42 @@
         </ScrollView>
     </HorizontalScrollView>
 
+    <Button
+        android:id="@+id/diminuisci"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/futuramedium"
+        android:gravity="center_vertical|center"
+        android:text="A-"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintStart_toEndOf="@+id/ingrandisci"
+        app:layout_constraintTop_toBottomOf="@+id/youtubeplayerfragment" />
+
+    <Button
+        android:id="@+id/ingrandisci"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="10dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/futuramedium"
+        android:gravity="center_horizontal|center"
+        android:text="A+"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintStart_toStartOf="@+id/barra"
+        app:layout_constraintTop_toBottomOf="@+id/youtubeplayerfragment" />
+
     <ImageButton
         android:id="@+id/move"
         android:layout_width="35dp"
         android:layout_height="37dp"
         android:background="@android:color/transparent"
-        android:elevation="8dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toStartOf="@+id/barra"
@@ -254,19 +225,97 @@
         app:layout_constraintTop_toBottomOf="@+id/youtubeplayerfragment"
         app:srcCompat="@mipmap/up" />
 
-    <ImageView
-        android:id="@+id/rotate"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@mipmap/rotate"
-        android:elevation="8dp"
+    <ImageButton
+        android:id="@+id/youButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@mipmap/youtube"
         android:scaleType="fitXY"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toStartOf="@+id/traduz"
+        app:layout_constraintTop_toTopOf="@+id/barra"
+        app:srcCompat="@mipmap/youtube" />
+
+    <TextView
+        android:id="@+id/fondo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/common_signin_btn_dark_text_default"
+        android:elevation="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/barra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/testoPoesia2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/common_signin_btn_dark_text_default"
+        android:elevation="8dp"
+        android:ems="10"
+        android:fontFamily="@font/aralitalc"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:text="Testo poesia scritta\ncon "
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/sfondo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/trad"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:color/transparent"
+        android:text="ITALIANO"
+        android:textColor="@color/common_signin_btn_dark_text_focused"
+        android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/titolo2"
-        app:layout_constraintTop_toTopOf="@+id/titolo2"
-        app:srcCompat="@mipmap/rotate" />
+        app:layout_constraintTop_toTopOf="@+id/titolo2" />
+
+    <Button
+        android:id="@+id/ameno"
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:text="A- "
+        android:textColor="@color/common_signin_btn_dark_text_default"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/trad"
+        app:layout_constraintTop_toTopOf="@+id/titolo2" />
+
+    <Button
+        android:id="@+id/apiu"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:text="A+"
+        android:textColor="@color/common_signin_btn_dark_text_default"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/ameno"
+        app:layout_constraintTop_toTopOf="@+id/titolo2" />
 
 
 </android.support.constraint.ConstraintLayout>

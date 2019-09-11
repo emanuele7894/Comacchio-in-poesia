@@ -40,9 +40,10 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
     internal lateinit var titolo2: TextView
     internal lateinit var sottotitolo2: TextView
     internal lateinit var testoPoesia: TextView
+    internal lateinit var testoPoesia2: TextView
     internal lateinit var barra: ImageView
-    internal lateinit var rotateImg: ImageView
     internal lateinit var conteggioVideo: TextView
+
 
     var videoPlay = YouTubePlayerFragment()
     internal lateinit var videoPlayB: YouTubePlayer
@@ -59,6 +60,7 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
     var stringaCaricata2 = ""
     var stringTrue = true
     var muve = false
+    var tradT = true
 
     var stringaAutore: String = ""
     var stringaAutoreElibro: String = ""
@@ -67,6 +69,7 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
     var numeroLibro = 0
     var numeroVideo = 0
     var totaleVideo = 0
+    var videoPres = false
 
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -79,8 +82,9 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
         sottotitolo2 = findViewById<TextView>(R.id.sottotitolo2)
         testoPoesia = findViewById<TextView>(R.id.testoPoesia)
         testoPoesia.movementMethod = ScrollingMovementMethod()
+        testoPoesia2 = findViewById<TextView>(R.id.testoPoesia2)
+        testoPoesia2.movementMethod = ScrollingMovementMethod()
         barra = findViewById<ImageView>(R.id.barra)
-        rotateImg = findViewById<ImageView>(R.id.rotate)
         conteggioVideo = findViewById<TextView>(R.id.contV)
         videoPlay = fragmentManager.findFragmentById(R.id.youtubeplayerfragment) as YouTubePlayerFragment;
 
@@ -293,8 +297,12 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
             if (stringaTitoloDial == ""){
 
                 traduzione.visibility = View.INVISIBLE
+                tradT = false
 
+            }else {
+                tradT = true
             }
+
         }
 
 
@@ -308,13 +316,14 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
         fun videoNo(){
 
+            videoPres = false
 
 
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
+            // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
             muveUp.visibility = View.INVISIBLE
                 youTub.visibility = View.INVISIBLE
-                    rotateImg.visibility = View.INVISIBLE
 
             val transition = AutoTransition()
 
@@ -340,10 +349,11 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
         fun videoNo2(){
 
+            videoPres = false
 
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                    //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
-            rotateImg.visibility = View.INVISIBLE
+
 
             val transition = AutoTransition()
 
@@ -372,11 +382,12 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
         //sposta la barra al centro dopo aver cliccato il pulsante alza
         fun videoYes2(){
 
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
+            videoPres = true
+
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
 
             muveUp.visibility = View.VISIBLE
                 youTub.visibility = View.VISIBLE
-                    rotateImg.visibility = View.VISIBLE
 
             val transition = AutoTransition()
 
@@ -396,11 +407,12 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
         //Controllo all'avvio se il video è presente posiziona la barra al centro
         fun videoYes(){
 
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
+            videoPres = true
+
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
 
             muveUp.visibility = View.VISIBLE
                 youTub.visibility = View.VISIBLE
-                    rotateImg.visibility = View.VISIBLE
 
             val transition = AutoTransition()
             transition.duration = 500
@@ -445,54 +457,99 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
         //Pulsante indgrandisci font
 
+        fun ingrandisciCarattere(){
+
+            if (testoPoesia.textSize <= 70f) {
+
+                testoPoesia.width = testoPoesia.width + 140
+                val size = testoPoesia.textSize * 1.1f
+                testoPoesia.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
+                testoPoesia2.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
+
+            }
+
+        }
+
         ingrandisci.setOnClickListener(object : View.OnClickListener {
 
             override fun onClick(v: View?) {
 
+                ingrandisciCarattere()
 
 
-                if (testoPoesia.textSize <= 70f) {
 
-                    testoPoesia.width = testoPoesia.width + 140
-                    val size = testoPoesia.textSize * 1.1f
-                    testoPoesia.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
+            }
+        })
 
-                }
+        apiu.setOnClickListener(object : View.OnClickListener {
+
+            override fun onClick(v: View?) {
+
+                ingrandisciCarattere()
+
+
 
             }
         })
 
 
+
         //Pulsante diminuisci font
+
+        fun diminuisciCarattere(){
+
+            if (testoPoesia.textSize >= 40f) {
+
+                val size = testoPoesia.textSize / 1.1f
+                testoPoesia.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
+                testoPoesia.width = testoPoesia.width - 140
+
+                testoPoesia2.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
+                testoPoesia2.width = testoPoesia2.width - 140
+
+
+            }
+
+        }
 
         diminuisci.setOnClickListener(object : View.OnClickListener {
 
             override fun onClick(v: View?) {
 
-                if (testoPoesia.textSize >= 40f) {
-
-                    val size = testoPoesia.textSize / 1.1f
-                    testoPoesia.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
-                    testoPoesia.width = testoPoesia.width - 140
-
-                }
+                diminuisciCarattere()
 
             }
         })
 
+        ameno.setOnClickListener(object : View.OnClickListener {
+
+            override fun onClick(v: View?) {
+
+                diminuisciCarattere()
+
+            }
+        })
+
+
+
+        //Funzione di traduzione
         fun trad(){
 
             if (traduzione.text == "ITALIANO") {
 
                 titolo2.text = " " + stringaTitoloIta
                 testoPoesia.text = "$stringaCaricata2"
+                testoPoesia2.text = "$stringaCaricata2"
                 traduzione.text = "DIALETTO"
+                trad.text = "DIALETTO"
 
             }else  if (traduzione.text == "DIALETTO") {
 
                 titolo2.text = " " + stringaTitoloDial
                 testoPoesia.text = "$stringaCaricata1"
+                testoPoesia2.text = "$stringaCaricata1"
                 traduzione.text = "ITALIANO"
+                trad.text = "ITALIANO"
 
             }
         }
@@ -508,13 +565,27 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
         })
 
 
+        trad.setOnClickListener(object : View.OnClickListener {
+
+            override fun onClick(v: View?) {
+
+                trad()
+
+            }
+        })
 
 
         if (stringaTitoloDial == ""){
 
             traduzione.visibility = View.INVISIBLE
+                tradT = false
+
+        }else {
+
+            tradT = true
 
         }
+
 
 
 
@@ -531,6 +602,9 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
             }
 
         })
+
+
+
 
 
 
@@ -556,6 +630,11 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
                     muve = false
 
                     videoYes2()
+
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+
+                            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
+
 
 
 
@@ -602,10 +681,13 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
             testoPoesia.text = "$stringaCaricata1"
             testoPoesia.width = 1000
 
+
             stringaPathVideo = linkVideo!![num]
             videoPlayB.loadVideo(stringaPathVideo)
 
             sottotitolo2.text = stringaAutoreElibro.toString()
+
+
 
             if (  linkVideo!![numeroVideo] == "" ) {  // the resouce exists...ù
 
@@ -630,6 +712,7 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
             controlloDialetto()
 
             traduzione.text = "ITALIANO"
+            trad.text = "ITALIANO"
 
 
         }
@@ -709,11 +792,41 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
         super.onConfigurationChanged(newConfig)
         if (newConfig != null) {
 
-
             if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                videoPlayB.setFullscreen(true)
+
+                if (videoPres == true ){
+
+                    videoPlayB.setFullscreen(true)
+
+                }else {
+
+                    testoPoesia2.visibility = View.VISIBLE
+                        fondo.visibility = View.VISIBLE
+
+                        if(tradT == true){ trad.visibility = View.VISIBLE }
+                            apiu.visibility = View.VISIBLE
+                                ameno.visibility = View.VISIBLE
+                                    testoPoesia2.text = testoPoesia.text
+
+                }
+
+
+
             } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                videoPlayB.setFullscreen(false)
+
+                if (videoPres == false ){
+
+                    videoPlayB.setFullscreen(false)
+
+                         trad.visibility = View.INVISIBLE
+                            apiu.visibility = View.INVISIBLE
+                                ameno.visibility = View.INVISIBLE
+                                    testoPoesia2.visibility = View.INVISIBLE
+                                        fondo.visibility = View.INVISIBLE
+
+
+                }
+
             }
         }
     }

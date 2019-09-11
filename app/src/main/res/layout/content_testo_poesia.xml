@@ -14,7 +14,7 @@
         android:layout_alignParentLeft="true"
         android:background="@color/common_signin_btn_dark_text_default"
         android:ems="10"
-        android:fontFamily="@font/souvenirdemi"
+        android:fontFamily="@font/aralitalc"
         android:scrollbarAlwaysDrawHorizontalTrack="true"
         android:text="Testo poesia scritta\ncon "
         android:textAppearance="@style/TextAppearance.AppCompat"
