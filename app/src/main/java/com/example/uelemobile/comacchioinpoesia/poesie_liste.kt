@@ -3,11 +3,11 @@ package com.example.uelemobile.comacchioinpoesia
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.*
 import android.widget.Toast
 import android.widget.AdapterView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.uelemobile.comacchioinpoesia.adapter.UserListAdapter
 import com.example.uelemobile.comacchioinpoesia.data.UserDto
 
@@ -38,12 +38,12 @@ class poesie_liste : AppCompatActivity() {
 
 
         var autoreLibro = intent.getStringExtra(".titoloAutore");
-            var nomeLibro = intent.getStringExtra(".titoloLibro");
-                 var numeroLibro = intent.getStringExtra(".numeroLibro");
+        var nomeLibro = intent.getStringExtra(".titoloLibro");
+        var numeroLibro = intent.getStringExtra(".numeroLibro");
 
 
         titolo.text = " " + autoreLibro
-            sottotitolo.text = nomeLibro
+        sottotitolo.text = nomeLibro
 
 
         if(numeroLibro == "0"){
@@ -73,7 +73,7 @@ class poesie_liste : AppCompatActivity() {
             val Titol1 = variable()
             titoloPoesia = Titol1.vbVTitoloD
             sottotitoloPoesia = Titol1.vbVTitolo
-          //  listView.setBackgroundResource(R.mipmap.valterbellotti);
+            //  listView.setBackgroundResource(R.mipmap.valterbellotti);
 
         }else if(numeroLibro == "4"){
 
@@ -107,11 +107,11 @@ class poesie_liste : AppCompatActivity() {
             val clickItemObj = index
 
             k2.putExtra(".titoloAutoreElibro", "$autoreLibro / $nomeLibro")
-                k2.putExtra(".titoloIta", sottotitoloPoesia!![clickItemObj])
-                    k2.putExtra(".titoloDial", titoloPoesia!![clickItemObj])
-                        k2.putExtra(".titoloAutore2", "$autoreLibro")
-                            k2.putExtra(".numeroLibro", numeroLibro);
-                                    k2.putExtra(".numeropoesia", "$clickItemObj");
+            k2.putExtra(".titoloIta", sottotitoloPoesia!![clickItemObj])
+            k2.putExtra(".titoloDial", titoloPoesia!![clickItemObj])
+            k2.putExtra(".titoloAutore2", "$autoreLibro")
+            k2.putExtra(".numeroLibro", numeroLibro);
+            k2.putExtra(".numeropoesia", "$clickItemObj");
 
             if (titoloPoesia!![0] == ""){
 

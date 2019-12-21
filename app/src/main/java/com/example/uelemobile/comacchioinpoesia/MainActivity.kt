@@ -2,30 +2,31 @@ package com.example.uelemobile.comacchioinpoesia
 
 import android.animation.ObjectAnimator
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.os.Handler
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.InterstitialAd
+import androidx.appcompat.app.AppCompatActivity
+import com.example.uelemobile.comacchioinpoesia.data.dataPoesie
+import com.google.firebase.FirebaseApp
 import java.io.IOException
+import com.google.firebase.database.*
+import java.util.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var  ref: DatabaseReference
     internal lateinit var testoinfo: TextView
     internal var visible = "invisible"
-    internal lateinit var mAdView: AdView
+    lateinit var dati : MutableList<dataPoesie>
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
         testoinfo = findViewById(R.id.testoInfo) as TextView
 
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
 
         var stringaCaricata = LoadData("info.txt");
-                testoinfo.text = stringaCaricata
+        testoinfo.text = stringaCaricata
 
         val buttonMail = findViewById(R.id.buttonMail) as Button
 
@@ -42,83 +43,55 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//Admob pubblicità
-        val mInterstitialAd: InterstitialAd
+
+        //Fine pubblicità
 
 
-        mInterstitialAd =  InterstitialAd(this)
-        mInterstitialAd.setAdUnitId("ca-app-pub-1084610005673175/1647626035")
+        //Inserimento dati
+        ref = FirebaseDatabase.getInstance().getReference("pbTitolo")
 
 
 
 
-        val buttonMod = findViewById(R.id.buttonMob) as Button
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                if(p0.exists()){
+
+                    for(h in p0.children){
+
+                        val dat = h.getValue(dataPoesie::class.java)
+                        dati.add(dat!!)
+
+                        val pbT = variable()
+                        pbT.pbTitolo = arrayOf(dat.titoloIt)
+                        pbT.pbTitoloD = arrayOf(dat.titoloD)
+                        pbT.pbTitoloLinkVideo = arrayOf(dat.linkVideo)
 
 
-        buttonMod.setOnClickListener(object : View.OnClickListener {
 
-            override fun onClick(v: View?) {
 
-                if (mInterstitialAd.isLoaded()) {
 
-                    mInterstitialAd.show();
 
-                } else {
 
-                    mInterstitialAd.show();
+                    }
+
+
+
+
+
 
                 }
 
             }
+
+
         })
-
-
-
-
-
-        mAdView = findViewById(R.id.adView) as AdView
-        val adRequestBuilder = AdRequest.Builder()
-        adRequestBuilder.addTestDevice("519A88B7B0BB0A505A0F36FEDAFF3260")
-
-
-
-        // mAdView.loadAd(adRequestBuilder.build())
-        //   mInterstitialAd.loadAd(adRequestBuilder.build())
-
-        mAdView.loadAd(AdRequest.Builder().build())
-        mInterstitialAd.loadAd(AdRequest.Builder().build())
-
-        buttonMod.visibility = View.VISIBLE
-        mAdView.visibility = View.VISIBLE
-
-
-
-        mInterstitialAd.adListener = object : AdListener() {
-
-            override fun onAdClosed() {
-
-
-                mInterstitialAd.loadAd(AdRequest.Builder().build())
-                //  mInterstitialAd.loadAd(adRequestBuilder.build())
-
-            }
-
-        }
-
-
-        Handler().postDelayed({
-
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                //Begin Game, continue with app
-            }
-
-
-        }, 15000)
-
-
-        //Fine pubblicità
+        //fina inserimento dati
 
 
 
@@ -158,21 +131,21 @@ class MainActivity : AppCompatActivity() {
 
                     //rendo invisibile il testo
                     val fadeInfo = ObjectAnimator.ofFloat(testoinfo, View.ALPHA, 0.0f, 1.0f)
-                        fadeInfo.setDuration(1000)
-                            fadeInfo.start()
+                    fadeInfo.setDuration(1000)
+                    fadeInfo.start()
 
 
                     val rotInfo = ObjectAnimator.ofFloat(buttonInfo, View.ROTATION, 360.0f, 1.0f)
-                        rotInfo.setDuration(1000)
-                            rotInfo.start()
+                    rotInfo.setDuration(1000)
+                    rotInfo.start()
 
-                        buttonMail.visibility = View.VISIBLE
-                            visible = "visible"
+                    buttonMail.visibility = View.VISIBLE
+                    visible = "visible"
                     buttonMail.alpha = 1.0f
 
                     val moveBmail = ObjectAnimator.ofFloat(buttonMail, View.TRANSLATION_Y, 360.0f, 1.0f)
-                            moveBmail.setDuration(1000)
-                                moveBmail.start()
+                    moveBmail.setDuration(1000)
+                    moveBmail.start()
 
                     Handler().postDelayed({
 
@@ -186,12 +159,12 @@ class MainActivity : AppCompatActivity() {
 
                     //rendo visibile il testo
                     val fadeInfo2 = ObjectAnimator.ofFloat(testoinfo, View.ALPHA, 1.0f, 0.0f)
-                        fadeInfo2.setDuration(1000)
-                            fadeInfo2.start()
+                    fadeInfo2.setDuration(1000)
+                    fadeInfo2.start()
 
                     val rotInfo = ObjectAnimator.ofFloat(buttonInfo, View.ROTATION, -360.0f, 1.0f)
-                        rotInfo.setDuration(1000)
-                            rotInfo.start()
+                    rotInfo.setDuration(1000)
+                    rotInfo.start()
 
                     Handler().postDelayed({
 
@@ -201,11 +174,11 @@ class MainActivity : AppCompatActivity() {
 
 
                     val moveBmail = ObjectAnimator.ofFloat(buttonMail, View.ALPHA, 1.0f, 0.0f)
-                        moveBmail.setDuration(1000)
-                            moveBmail.start()
+                    moveBmail.setDuration(1000)
+                    moveBmail.start()
 
 
-                            visible = "invisible"
+                    visible = "invisible"
 
                     Handler().postDelayed({
 
@@ -218,7 +191,7 @@ class MainActivity : AppCompatActivity() {
 
 
                         buttonMail.visibility = View.INVISIBLE
-                            buttonMail.alpha = 0.0f
+                        buttonMail.alpha = 0.0f
 
                     }, 1000)
 
@@ -238,8 +211,8 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(v: View?) {
 
                 k.putExtra(".titoloAutore", "Pietro Boccaccini");
-                    k.putExtra(".titoloLibro", "Ech'el sunet");
-                        k.putExtra(".numeroLibro", "0");
+                k.putExtra(".titoloLibro", "Ech'el sunet");
+                k.putExtra(".numeroLibro", "0");
 
                 startActivity(k)
 
@@ -260,8 +233,8 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(v: View?) {
 
                 k.putExtra(".titoloAutore", "Pietro Boccaccini");
-                    k.putExtra(".titoloLibro", "Poesie varie");
-                         k.putExtra(".numeroLibro", "1");
+                k.putExtra(".titoloLibro", "Poesie varie");
+                k.putExtra(".numeroLibro", "1");
 
                 startActivity(k);
 
@@ -357,10 +330,10 @@ class MainActivity : AppCompatActivity() {
             val stream = assets.open(inFile)
 
             val size = stream.available()
-                val buffer = ByteArray(size)
-                    stream.read(buffer)
-                        stream.close()
-                             tContents = String(buffer)
+            val buffer = ByteArray(size)
+            stream.read(buffer)
+            stream.close()
+            tContents = String(buffer)
 
         } catch (e: IOException) {
             // Handle exceptions here

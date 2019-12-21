@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainL"
@@ -10,7 +11,7 @@
         android:id="@+id/sfondo"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/common_signin_btn_dark_text_default"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -243,7 +244,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
-        android:background="@color/common_signin_btn_dark_text_default"
+        android:background="@color/colorPrimaryDark"
         android:elevation="8dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -262,7 +263,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:background="@color/common_signin_btn_dark_text_default"
+        android:background="@color/colorPrimaryDark"
         android:elevation="8dp"
         android:ems="10"
         android:fontFamily="@font/aralitalc"
@@ -284,7 +285,7 @@
         android:layout_marginRight="8dp"
         android:background="@android:color/transparent"
         android:text="ITALIANO"
-        android:textColor="@color/common_signin_btn_dark_text_focused"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/titolo2"
@@ -298,7 +299,7 @@
         android:layout_marginRight="20dp"
         android:background="@android:color/transparent"
         android:text="A- "
-        android:textColor="@color/common_signin_btn_dark_text_default"
+        android:textColor="@color/colorPrimaryDark"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/trad"
         app:layout_constraintTop_toTopOf="@+id/titolo2" />
@@ -311,11 +312,11 @@
         android:layout_marginRight="20dp"
         android:background="@android:color/transparent"
         android:text="A+"
-        android:textColor="@color/common_signin_btn_dark_text_default"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/ameno"
         app:layout_constraintTop_toTopOf="@+id/titolo2" />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

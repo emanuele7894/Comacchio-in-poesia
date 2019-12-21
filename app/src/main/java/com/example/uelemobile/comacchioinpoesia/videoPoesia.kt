@@ -7,7 +7,6 @@ import android.content.ActivityNotFoundException
 import android.view.View
 import android.widget.*
 import android.os.Build
-import android.support.annotation.RequiresApi
 import java.io.*
 import android.text.method.ScrollingMovementMethod
 import android.util.TypedValue
@@ -16,9 +15,10 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.net.Uri
-import android.support.constraint.ConstraintSet
 import android.transition.AutoTransition
 import android.transition.TransitionManager
+import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintSet
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
@@ -311,7 +311,7 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
         //Controllo se il video è presente altrimenti nascondo la maschera del video
         var con =  ConstraintSet()
-            con.clone(mainL)
+        con.clone(mainL)
 
 
         fun videoNo(){
@@ -323,7 +323,7 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
             // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
             muveUp.visibility = View.INVISIBLE
-                youTub.visibility = View.INVISIBLE
+            youTub.visibility = View.INVISIBLE
 
             val transition = AutoTransition()
 
@@ -351,7 +351,7 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
             videoPres = false
 
-                    //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+            //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
 
 
@@ -384,10 +384,10 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
             videoPres = true
 
-                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
 
             muveUp.visibility = View.VISIBLE
-                youTub.visibility = View.VISIBLE
+            youTub.visibility = View.VISIBLE
 
             val transition = AutoTransition()
 
@@ -409,10 +409,10 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
             videoPres = true
 
-                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
 
             muveUp.visibility = View.VISIBLE
-                youTub.visibility = View.VISIBLE
+            youTub.visibility = View.VISIBLE
 
             val transition = AutoTransition()
             transition.duration = 500
@@ -578,7 +578,7 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
         if (stringaTitoloDial == ""){
 
             traduzione.visibility = View.INVISIBLE
-                tradT = false
+            tradT = false
 
         }else {
 
@@ -631,9 +631,9 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
                     videoYes2()
 
-                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
-                            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
 
 
 
@@ -801,12 +801,12 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
                 }else {
 
                     testoPoesia2.visibility = View.VISIBLE
-                        fondo.visibility = View.VISIBLE
+                    fondo.visibility = View.VISIBLE
 
-                        if(tradT == true){ trad.visibility = View.VISIBLE }
-                            apiu.visibility = View.VISIBLE
-                                ameno.visibility = View.VISIBLE
-                                    testoPoesia2.text = testoPoesia.text
+                    if(tradT == true){ trad.visibility = View.VISIBLE }
+                    apiu.visibility = View.VISIBLE
+                    ameno.visibility = View.VISIBLE
+                    testoPoesia2.text = testoPoesia.text
 
                 }
 
@@ -818,11 +818,11 @@ class videoPoesia : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener{
 
                     videoPlayB.setFullscreen(false)
 
-                         trad.visibility = View.INVISIBLE
-                            apiu.visibility = View.INVISIBLE
-                                ameno.visibility = View.INVISIBLE
-                                    testoPoesia2.visibility = View.INVISIBLE
-                                        fondo.visibility = View.INVISIBLE
+                    trad.visibility = View.INVISIBLE
+                    apiu.visibility = View.INVISIBLE
+                    ameno.visibility = View.INVISIBLE
+                    testoPoesia2.visibility = View.INVISIBLE
+                    fondo.visibility = View.INVISIBLE
 
 
                 }
