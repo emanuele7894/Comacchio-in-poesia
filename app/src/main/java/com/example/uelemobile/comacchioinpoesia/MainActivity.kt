@@ -9,19 +9,15 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.example.uelemobile.comacchioinpoesia.data.dataPoesie
-import com.google.firebase.FirebaseApp
 import java.io.IOException
-import com.google.firebase.database.*
-import java.util.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var  ref: DatabaseReference
+
     internal lateinit var testoinfo: TextView
     internal var visible = "invisible"
-    lateinit var dati : MutableList<dataPoesie>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -42,56 +38,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
-        //Fine pubblicità
-
-
-        //Inserimento dati
-        ref = FirebaseDatabase.getInstance().getReference("pbTitolo")
-
-
-
-
-        ref.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-
-                if(p0.exists()){
-
-                    for(h in p0.children){
-
-                        val dat = h.getValue(dataPoesie::class.java)
-                        dati.add(dat!!)
-
-                        val pbT = variable()
-                        pbT.pbTitolo = arrayOf(dat.titoloIt)
-                        pbT.pbTitoloD = arrayOf(dat.titoloD)
-                        pbT.pbTitoloLinkVideo = arrayOf(dat.linkVideo)
-
-
-
-
-
-
-
-                    }
-
-
-
-
-
-
-                }
-
-            }
-
-
-        })
-        //fina inserimento dati
 
 
 

@@ -5,7 +5,12 @@ public class variable {
 
 
 
-    public var pbTitolo  : Array<String>? = null
+    public var pbTitolo = arrayOf("Sonetto", "Parole al vento", "Pretese del giorno d'oggi",
+            "La cantante", "Guardando in giro", "Donne di ieri e d'oggi", "Per i comacchiesi lontani",
+            "Cara la mia Comacchio", "Boia di un mondo infame", "La mia Comacchio", "Addio, valli",
+            "Le sue bellezze", "In movimento", "Sotto la neve", "Sono arrivate", "Le campane di comacchio",
+            "Il carnevale", "Carnevalesca", "Mi piaci Comacchio", "Sulla luna", "Quando",
+            "La campana del convento", "Miracolo della mattina", "Ma no", "Prepotenze", "Un cuore nuovo")
     public var pbTitoloD = arrayOf("Sunet", "Paroli al vent", "Preteis del dei d'incue", "La cantèente",
             "Guardànd in zir", "Don d'èièr e d'incuè", "Pri cmecis luntan", "Cher el mie Cmacc",
             "Boie d'un mond infam", "El mie Cmacc", "Edio, Vall", "Il sue blaess", "In muvimeint",

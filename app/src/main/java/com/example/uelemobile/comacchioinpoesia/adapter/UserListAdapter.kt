@@ -1,8 +1,6 @@
 package com.example.uelemobile.comacchioinpoesia.adapter
 
-import android.app.Activity
 import android.content.Context
-import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +8,9 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.uelemobile.comacchioinpoesia.R
 import com.example.uelemobile.comacchioinpoesia.data.UserDto
+import com.example.uelemobile.comacchioinpoesia.poesie_liste
 
-class UserListAdapter(private var activity: Activity, private var items: ArrayList<UserDto>): BaseAdapter() {
+class UserListAdapter(private var activity: poesie_liste, private var items: ArrayList<UserDto>): BaseAdapter() {
 
     private class ViewHolder(row: View?) {
         var item: TextView? = null
